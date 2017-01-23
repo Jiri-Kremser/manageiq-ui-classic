@@ -48,4 +48,12 @@ module MiddlewareSummaryHelper
   def textual_middleware_messagings
     textual_link(@record.middleware_messagings)
   end
+
+  def textual_middleware_camel_contexts
+    textual_link(@record.middleware_camel_contexts)
+  end
+
+  def textual_middleware_camel_entities
+    textual_link(@record.middleware_camel_entities)
+  end
 end

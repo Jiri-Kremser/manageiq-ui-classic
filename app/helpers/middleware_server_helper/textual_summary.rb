@@ -4,12 +4,21 @@ module MiddlewareServerHelper::TextualSummary
   #
 
   def textual_group_properties
-    %i(name hostname feed bind_addr server_state product version)
+    if @record.product == 'Fuse'
+      @record = MiddlewareFuseServer.new(@record.attributes)
+      %i(name hostname feed server_state product)
+    else
+      %i(name hostname feed bind_addr server_state product version)
+    end
   end
 
   def textual_group_relationships
     # Order of items should be from parent to child
-    %i(ems middleware_server_group middleware_deployments middleware_datasources lives_on middleware_messagings)
+    if @record.product == 'Fuse'
+      %i(ems middleware_camel_contexts)
+    else
+      %i(ems middleware_server_group middleware_deployments middleware_datasources lives_on middleware_messagings)
+    end
   end
 
   #
@@ -38,8 +47,9 @@ module MiddlewareServerHelper::TextualSummary
   end
 
   def textual_server_state
+    state = @record.properties.key?('Server State') ? @record.properties['Server State'].capitalize : _('unknown')
     {:label => _('Server State'),
-     :value => @record.properties['Server State'].capitalize}
+     :value => state}
   end
 
   def textual_product
