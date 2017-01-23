@@ -174,6 +174,8 @@ class MiddlewareServerController < ApplicationController
     when 'middleware_datasources' then show_middleware_entities(MiddlewareDatasource)
     when 'middleware_deployments' then show_middleware_entities(MiddlewareDeployment)
     when 'middleware_messagings' then show_middleware_entities(MiddlewareMessaging)
+    when 'middleware_camel_contexts' then
+      show_middleware_entities(MiddlewareCamelContext, MiddlewareFuseServer.new(@record.attributes))
     else show_middleware
     end
   end

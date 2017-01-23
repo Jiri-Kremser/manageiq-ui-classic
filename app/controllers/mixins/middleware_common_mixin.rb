@@ -43,11 +43,11 @@ module MiddlewareCommonMixin
     end
   end
 
-  def show_middleware_entities(klass)
+  def show_middleware_entities(klass, record = @record)
     @showtype = @display = params[:display] unless params[:display].nil?
-    breadcrumb_title = _("%{name} (All %{title})") % {:name  => @record.name,
+    breadcrumb_title = _("%{name} (All %{title})") % {:name  => record.name,
                                                       :title => display_name(@display)}
-    drop_breadcrumb(:name => breadcrumb_title, :url => show_link(@record, :display => @display))
-    @view, @pages = get_view(klass, :parent => @record)
+    drop_breadcrumb(:name => breadcrumb_title, :url => show_link(record, :display => @display))
+    @view, @pages = get_view(klass, :parent => record)
   end
 end
