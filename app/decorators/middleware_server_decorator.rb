@@ -15,6 +15,8 @@ class MiddlewareServerDecorator < Draper::Decorator
       'vendor-hawkular'
     when 'JBoss EAP'
       'vendor-jboss-eap'
+    when 'Fuse'
+      'placeholder'
     else
       'vendor-wildfly'
     end
