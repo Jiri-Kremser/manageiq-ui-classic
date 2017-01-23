@@ -440,7 +440,7 @@ class ApplicationHelper::ToolbarChooser
                     cloud_tenants cloud_volumes ems_clusters flavors floating_ips host_aggregates hosts
                     load_balancers network_ports network_routers orchestration_stacks resource_pools
                     security_groups storages middleware_deployments middleware_datasources
-                    middleware_messagings middleware_servers)
+                    middleware_messagings middleware_servers middleware_camel_contexts middleware_camel_entities)
     to_display_center = %w(stack_orchestration_template topology)
     if @lastaction == 'show' && (@view || @display != 'main') && !@layout.starts_with?("miq_request")
       if @display == "vms" || @display == "all_vms"
@@ -478,6 +478,7 @@ class ApplicationHelper::ToolbarChooser
               container_image_registry ems_infra flavor host container_build infra_networking infra_topology ems_storage
               ontap_file_share ontap_logical_disk container_topology middleware_topology cloud_topology middleware_server
               middleware_deployment middleware_datasource middleware_domain middleware_server_group middleware_messaging
+              middleware_camel_context middleware_camel_entity
               ontap_storage_system orchestration_stack resource_pool storage_manager container_template
               ems_block_storage ems_object_storage timeline usage).include?(@layout)
           if ["show_list"].include?(@lastaction)
