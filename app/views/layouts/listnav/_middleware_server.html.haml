@@ -12,5 +12,9 @@
       %ul.nav.nav-pills.nav-stacked
         = single_relationship_link(@record, :ems_middleware, "ext_management_system")
         = single_relationship_link(@record, :middleware_server_group, "middleware_server_group")
-        - %i(middleware_deployment middleware_datasource middleware_messaging).each do |ent|
-          = multiple_relationship_link(@record, ent)
+        - if @record.product == 'Fuse'
+          = multiple_relationship_link(@record, :middleware_camel_contexts)
+        - else
+          - %i(middleware_deployment middleware_datasource middleware_messaging).each do |ent|
+            = multiple_relationship_link(@record, ent)
+

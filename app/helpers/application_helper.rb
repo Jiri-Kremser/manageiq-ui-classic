@@ -843,6 +843,8 @@ module ApplicationHelper
        host
        host_aggregate
        load_balancer
+       middleware_camel_context
+       middleware_camel_entity
        middleware_datasource
        middleware_deployment
        middleware_domain
@@ -1261,6 +1263,8 @@ module ApplicationHelper
                         host
                         host_aggregate
                         load_balancer
+                        middleware_camel_context
+                        middleware_camel_entity
                         middleware_datasource
                         middleware_deployment
                         middleware_domain
@@ -1358,6 +1362,8 @@ module ApplicationHelper
           flavor
           floating_ip
           host
+          middleware_camel_context
+          middleware_camel_entity
           middleware_datasource
           middleware_deployment
           middleware_domain
@@ -1426,6 +1432,8 @@ module ApplicationHelper
              host
              host_aggregate
              load_balancer
+             middleware_camel_context
+             middleware_camel_entity
              middleware_datasource
              middleware_deployment
              middleware_domain
@@ -1489,6 +1497,8 @@ module ApplicationHelper
       host
       host_aggregate
       load_balancer
+      middleware_camel_context
+      middleware_camel_entity
       middleware_datasource
       middleware_deployment
       middleware_domain
